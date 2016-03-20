@@ -6,8 +6,7 @@
 	<artifactId>XX</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>XX Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>XX</name>
 
 	<properties>
 		<mybatis.generator.generatorConfig.xml>${basedir}/src/test/resources/generatorConfig.xml</mybatis.generator.generatorConfig.xml>
