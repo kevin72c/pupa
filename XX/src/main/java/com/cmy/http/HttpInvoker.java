@@ -76,16 +76,18 @@ public class HttpInvoker {
     }
 
     public static void post() throws Exception {
+        
+        String url = "http://localhost:8080/api/sc/commodity/getCommodity";
         // 创建http客户端和post
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost("http://121.41.41.156:8080/user/login.action");
+        HttpPost httpPost = new HttpPost(url);
         
         List<NameValuePair> nvps = new ArrayList<NameValuePair>(); 
 
         // 设置参数
         JSONObject param = new JSONObject();
-        param.put("userName", "银江运动中心城西馆");
-        param.put("password", "123456");
+        param.put("arg0", "test");
+        param.put("arg1", "123456");
         nvps.add(new BasicNameValuePair("data", 
                 param.toJSONString()));
 
