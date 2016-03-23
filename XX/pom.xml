@@ -157,6 +157,7 @@
 
 	<build>
 		<finalName>XX</finalName>
+		
 		<plugins>
 			<!-- Maven插件 配置 -->
 
