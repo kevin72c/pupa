@@ -30,6 +30,36 @@ public class HttpInvoker {
         post();
     }
 
+public static void post() throws Exception {
+        
+        String url = "http://localhost:8080/app/demo/rest";
+        // 创建http客户端和post
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(url);
+        
+        List<NameValuePair> nvps = new ArrayList<NameValuePair>(); 
+
+        // 设置参数
+        JSONObject param = new JSONObject();
+        param.put("id", "1");
+        param.put("arg1", "123456");
+        nvps.add(new BasicNameValuePair("data", 
+                param.toJSONString()));
+
+        httpPost.setEntity(
+                new UrlEncodedFormEntity(nvps, "UTF-8"));
+        
+        // 执行请求
+        CloseableHttpResponse response = httpClient.execute(httpPost);
+        // 获取返回实体
+        HttpEntity entity = response.getEntity();
+        // 解析实体内容
+        String responseString = EntityUtils.toString(entity, "UTF-8");
+        System.out.println(responseString);
+        
+        httpClient.close();
+    }
+
     public static void postWithFile() throws Exception {
         String filePath = "d:/测试.txt";
         // 创建http客户端和post
@@ -75,33 +105,5 @@ public class HttpInvoker {
         httpClient.close();
     }
 
-    public static void post() throws Exception {
-        
-        String url = "http://localhost:8080/swg/student/1";
-        // 创建http客户端和post
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost(url);
-        
-        List<NameValuePair> nvps = new ArrayList<NameValuePair>(); 
-
-        // 设置参数
-        JSONObject param = new JSONObject();
-        param.put("arg0", "test");
-        param.put("arg1", "123456");
-        nvps.add(new BasicNameValuePair("data", 
-                param.toJSONString()));
-
-        httpPost.setEntity(
-                new UrlEncodedFormEntity(nvps, "UTF-8"));
-        
-        // 执行请求
-        CloseableHttpResponse response = httpClient.execute(httpPost);
-        // 获取返回实体
-        HttpEntity entity = response.getEntity();
-        // 解析实体内容
-        String responseString = EntityUtils.toString(entity, "UTF-8");
-        System.out.println(responseString);
-        
-        httpClient.close();
-    }
+    
 }

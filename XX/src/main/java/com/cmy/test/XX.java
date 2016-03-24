@@ -16,14 +16,6 @@ public class XX {
         System.out.println(Integer.MAX_VALUE -1);
         new XX();
     }
-    public XX() {
-        System.out.println("gz");
-    }
-    
-    {
-        System.out.println("lazy");
-    }
-    
     
 }
 class A {
