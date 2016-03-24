@@ -77,7 +77,7 @@ public class HttpInvoker {
 
     public static void post() throws Exception {
         
-        String url = "http://localhost:8080/api/sc/commodity/getCommodity";
+        String url = "http://localhost:8080/swg/student/1";
         // 创建http客户端和post
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(url);
