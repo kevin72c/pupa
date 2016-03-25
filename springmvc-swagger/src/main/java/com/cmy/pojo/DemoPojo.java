@@ -1,6 +1,6 @@
 package com.cmy.pojo;
 
-public class ResultPojo {
+public class DemoPojo {
 
     private int id;
     private String name;
