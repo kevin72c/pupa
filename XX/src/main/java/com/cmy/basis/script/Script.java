@@ -1,8 +1,5 @@
 package com.cmy.basis.script;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -10,20 +7,7 @@ import javax.script.ScriptException;
 public class Script {
 
     public static void main(String[] args) {
-//        eval("10000000000+1111111111111111111111");
-        String str = "111111";
-        char[] charArray = str.toCharArray();
-        int x;
-        for (int i = 0; i < charArray.length; i++) {
-            
-        }
-         BigInteger b = new
-         BigInteger("1000000000000333333333333333333333333333333333333000000000000006666666666666666666666666666666666600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
-         BigInteger add = b.add(b);
-//         b.subtract(val);
-         System.out.println(add);
-//         System.out.println(Integer.MAX_VALUE);
-//         System.out.println(Double.MAX_VALUE);
+        eval("10000000000+1111111111111111111111");
     }
 
     private static final ScriptEngine engine;

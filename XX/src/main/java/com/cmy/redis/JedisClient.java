@@ -8,8 +8,8 @@ public class JedisClient {
 
     static Jedis jedis;
     static {
-        jedis = new Jedis("121.41.41.156", 6380);
-        jedis.auth("dxw123");
+        jedis = new Jedis("127.0.0.1", 6380);
+//        jedis.auth("");
     }
     
     /**
