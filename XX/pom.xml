@@ -18,13 +18,31 @@
 		<!-- JDK版本 -->
 		<java.version>1.7</java.version>
 
-		<spring-version>4.2.4.RELEASE</spring-version>
-		<struts-version>2.3.24.1</struts-version>
-		<mybatis-version>3.2.2</mybatis-version>
+		<spring.version>4.2.4.RELEASE</spring.version>
+		<mybatis.version>3.2.2</mybatis.version>
+		<mybatis.spring.version>1.1.1</mybatis.spring.version>
 		<slf4j.version>1.6.6</slf4j.version>
 		<log4j.version>1.2.12</log4j.version>
-		<mybatis.spring.version>1.1.1</mybatis.spring.version>
+        <c3p0.version>0.9.1.2</c3p0.version>
+        
+        <!-- alibaba -->
+        <fastjson.version>1.2.7</fastjson.version>
+        <dubbo.version>2.4.10</dubbo.version>
+        <aliyun.sdk.oss.version>2.2.1</aliyun.sdk.oss.version>
 
+        <!-- mysql -->
+        <mysql.version>5.1.37</mysql.version>
+
+        <!-- httpclient -->
+        <httpclient.version>4.3.5</httpclient.version>
+        <!-- redis -->
+        <jedis.version>2.7.0</jedis.version>
+        
+        <!-- plugin versions -->
+        <plugin.mybatis.generator>1.3.1</plugin.mybatis.generator>
+        <plugin.maven.surefire.version>2.18.1</plugin.maven.surefire.version>
+        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        
 		<!-- plugin versions -->
 		<plugin.mybatis.generator>1.3.1</plugin.mybatis.generator>
 		<plugin.maven.surefire.version>2.18.1</plugin.maven.surefire.version>
@@ -57,27 +75,6 @@
 			<version>4.5.2</version>
 		</dependency>
 
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.3</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-pool2</artifactId>
-			<version>2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.18</version>
-		</dependency>
-
 		<!-- redis -->
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -91,53 +88,79 @@
 			<version>1.2.3</version>
 		</dependency>
 
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis.spring.version}</version>
+		</dependency>
+		<!-- mybaits 分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>3.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jsqlparser</groupId>
+			<artifactId>jsqlparser</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+
+		<!-- jdbc pool -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
+		</dependency>
+
 		<!-- springframe start -->
+		<!-- spring核心包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring-version}</version>
+			<version>${spring.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring-version}</version>
+			<version>${spring.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>${spring-version}</version>
+			<version>${spring.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>${spring-version}</version>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 		<!-- springframe end -->
 
@@ -153,11 +176,17 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.1</version>
+            <scope>runtime</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
 		<finalName>XX</finalName>
-		
+
 		<plugins>
 			<!-- Maven插件 配置 -->
 
