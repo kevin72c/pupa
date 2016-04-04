@@ -12,21 +12,21 @@ import java.nio.channels.FileChannel;
 
 public class CopyFile {
 
-	static String infile = "C:\\in.f4v";
-//	static String infile = "C:\\b.gif";
-	static String outfile = "C:\\copy.gif";
+    static String infile = "C:\\in.f4v";
+//  static String infile = "C:\\b.gif";
+    static String outfile = "C:\\copy.gif";
     static int    bufferSize = 1024;
-	
+    
     public static void main(String[] args) throws Exception {
-    	long startTime = System.nanoTime();
-    	bufferReadAndWrite(new FileInputStream(infile), new FileOutputStream(outfile));
-    	long endTime = System.nanoTime();
-    	System.out.println(endTime - startTime);
+        long startTime = System.nanoTime();
+        bufferReadAndWrite(new FileInputStream(infile), new FileOutputStream(outfile));
+        long endTime = System.nanoTime();
+        System.out.println(endTime - startTime);
 
-    	startTime = System.nanoTime();
-    	readAndWrite();
-    	endTime = System.nanoTime();
-    	System.out.println(endTime - startTime);
+        startTime = System.nanoTime();
+        readAndWrite();
+        endTime = System.nanoTime();
+        System.out.println(endTime - startTime);
     }
     
     public static void bufferReadAndWrite(InputStream in, OutputStream out)
@@ -47,26 +47,26 @@ public class CopyFile {
     }
     
     public static void readAndWrite() throws Exception {
-    	// »ñÈ¡Ô´ÎÄ¼şºÍÄ¿±êÎÄ¼şµÄÊäÈëÊä³öÁ÷
+        // è·å–æºæ–‡ä»¶å’Œç›®æ ‡æ–‡ä»¶çš„è¾“å…¥è¾“å‡ºæµ
         FileInputStream fin = new FileInputStream(infile);
         FileOutputStream fout = new FileOutputStream(outfile);
-        // »ñÈ¡ÊäÈëÊä³öÍ¨µÀ
+        // è·å–è¾“å…¥è¾“å‡ºé€šé“
         FileChannel fcin = fin.getChannel();
         FileChannel fcout = fout.getChannel();
-        // ´´½¨»º³åÇø
+        // åˆ›å»ºç¼“å†²åŒº
         ByteBuffer buffer = ByteBuffer.allocate(1024);
         while (true) {
-            // clear·½·¨ÖØÉè»º³åÇø£¬Ê¹Ëü¿ÉÒÔ½ÓÊÜ¶ÁÈëµÄÊı¾İ
+            // clearæ–¹æ³•é‡è®¾ç¼“å†²åŒºï¼Œä½¿å®ƒå¯ä»¥æ¥å—è¯»å…¥çš„æ•°æ®
             buffer.clear();
-            // ´ÓÊäÈëÍ¨µÀÖĞ½«Êı¾İ¶Áµ½»º³åÇø
+            // ä»è¾“å…¥é€šé“ä¸­å°†æ•°æ®è¯»åˆ°ç¼“å†²åŒº
             int r = fcin.read(buffer);
-            // read·½·¨·µ»Ø¶ÁÈ¡µÄ×Ö½ÚÊı£¬¿ÉÄÜÎªÁã£¬Èç¹û¸ÃÍ¨µÀÒÑµ½´ïÁ÷µÄÄ©Î²£¬Ôò·µ»Ø-1
+            // readæ–¹æ³•è¿”å›è¯»å–çš„å­—èŠ‚æ•°ï¼Œå¯èƒ½ä¸ºé›¶ï¼Œå¦‚æœè¯¥é€šé“å·²åˆ°è¾¾æµçš„æœ«å°¾ï¼Œåˆ™è¿”å›-1
             if (r == -1) {
                 break;
             }
-            // flip·½·¨ÈÃ»º³åÇø¿ÉÒÔ½«ĞÂ¶ÁÈëµÄÊı¾İĞ´ÈëÁíÒ»¸öÍ¨µÀ
+            // flipæ–¹æ³•è®©ç¼“å†²åŒºå¯ä»¥å°†æ–°è¯»å…¥çš„æ•°æ®å†™å…¥å¦ä¸€ä¸ªé€šé“
             buffer.flip();
-            // ´ÓÊä³öÍ¨µÀÖĞ½«Êı¾İĞ´Èë»º³åÇø
+            // ä»è¾“å‡ºé€šé“ä¸­å°†æ•°æ®å†™å…¥ç¼“å†²åŒº
             fcout.write(buffer);
         }
 //        int readBufferSize = 0;
@@ -75,5 +75,7 @@ public class CopyFile {
 //            fcout.write(buffer);
 //            buffer.clear();
 //        }
+        fin.close();
+        fout.close();
     }
 }

@@ -1,4 +1,4 @@
-package com.cmy.http;
+package com.cmy.net.http;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

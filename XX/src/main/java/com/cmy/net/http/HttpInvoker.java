@@ -1,4 +1,4 @@
-package com.cmy.http;
+package com.cmy.net.http;
 
 import java.io.File;
 import java.nio.charset.Charset;
@@ -24,31 +24,28 @@ import com.alibaba.fastjson.JSONObject;
 
 public class HttpInvoker {
 
-
     public static void main(String[] args) throws Exception {
-//        postWithFile();
+        // postWithFile();
         post();
     }
 
-public static void post() throws Exception {
-        
-        String url = "http://localhost:8080/app/demo/rest";
+    public static void post() throws Exception {
+
+        String url = "http://localhost:8080/app/rest";
         // 创建http客户端和post
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(url);
-        
-        List<NameValuePair> nvps = new ArrayList<NameValuePair>(); 
+
+        List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 
         // 设置参数
         JSONObject param = new JSONObject();
         param.put("id", "1");
         param.put("arg1", "123456");
-        nvps.add(new BasicNameValuePair("data", 
-                param.toJSONString()));
+        nvps.add(new BasicNameValuePair("data", param.toJSONString()));
 
-        httpPost.setEntity(
-                new UrlEncodedFormEntity(nvps, "UTF-8"));
-        
+        httpPost.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
+
         // 执行请求
         CloseableHttpResponse response = httpClient.execute(httpPost);
         // 获取返回实体
@@ -56,7 +53,7 @@ public static void post() throws Exception {
         // 解析实体内容
         String responseString = EntityUtils.toString(entity, "UTF-8");
         System.out.println(responseString);
-        
+
         httpClient.close();
     }
 
@@ -64,30 +61,26 @@ public static void post() throws Exception {
         String filePath = "d:/测试.txt";
         // 创建http客户端和post
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        
-//        HttpPost httpPost = new HttpPost("http://localhost:8080/ssm/demo/uploadImg.action");
-        HttpPost httpPost = new HttpPost("http://121.41.41.156:8080/demo/uploadImg.action");
+
+        // HttpPost httpPost = new
+        // HttpPost("http://localhost:8080/ssm/demo/uploadImg.action");
+        HttpPost httpPost = new HttpPost("http://121.41.41.156:8080/app/uploadImg.action");
 
         // 设置上传的文件
         FileBody fileBody = new FileBody(new File(filePath));
         // 设置请求参数
         JSONObject param = new JSONObject();
         param.put("img", "测试.txt");
-        param.put("fileName", "a.txt");
-        param.put("venueID", 47);
-        param.put("userID", 66);
-        param.put("token", "tokenValue");
-        param.put("x", "测试");
-        StringBody sb = new StringBody(param.toString(),
-                ContentType.APPLICATION_JSON);
-        
+        param.put("userID", 1);
+        StringBody sb = new StringBody(param.toString(), ContentType.APPLICATION_JSON);
+
         // 设置上传实体,包含文件和参数
         MultipartEntityBuilder mpEntity = MultipartEntityBuilder.create();
         // 设置请求的编码格式
         mpEntity.setCharset(Charset.forName("UTF-8"));
         // 设置浏览器兼容模式
         mpEntity.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-        
+
         mpEntity.addPart("file", fileBody);
         mpEntity.addPart("data", sb);
         httpPost.setEntity(mpEntity.build());
@@ -101,9 +94,8 @@ public static void post() throws Exception {
         // 解析实体内容
         String responseString = EntityUtils.toString(entity, "UTF-8");
         System.out.println(responseString);
-        
+
         httpClient.close();
     }
 
-    
 }
