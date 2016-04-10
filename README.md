@@ -8,9 +8,9 @@
 ## springmvc swagger document api
 
 # Some demo
-## alipay
-## wechatpay
+ alipay
+ wechatpay
 
-## Seckill project
+ Seckill project
 
-## Lottery system
+ Lottery system
