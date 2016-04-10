@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmy.server.dao.student.StudentMapper">
+
+  	<select id="selectList" resultType="com.cmy.server.model.TStudent"
+  	 useCache="true" >
+      SELECT *
+	    FROM t_student
+	   WHERE 1=1
+	   <if test="studentID != null">
+	     AND studentID = #{studentID}
+	   </if>
+	   <if test="gender != null">
+	     AND gender = #{gender}
+	   </if>
+	   <if test="age != null">
+	     AND age = #{age}
+	   </if>
+	</select>
+	
+	<cache/>
+</mapper>

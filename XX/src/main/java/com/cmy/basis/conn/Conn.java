@@ -16,9 +16,9 @@ public class Conn {
 //  static String userName = "scott";
 //  static String password = "tiger";
     
-    static String url = "jdbc:mysql://127.0.0.1:3306/dev?useUnicode/=true&characterEncoding/=utf8";
-    static String userName = "";
-    static String password = "";
+    static String url = "jdbc:mysql://172.16.86.135:3306/db?useUnicode/=true&characterEncoding/=utf8";
+    static String userName = "root";
+    static String password = "0503";
     
     static {
         try {
@@ -35,11 +35,12 @@ public class Conn {
     public static void main(String[] args) throws Exception {
         Statement stat = conn.createStatement();
         ResultSet rs = stat.executeQuery(
-                "select userID from sport_user where userType = 0");
+                "select * from t_student");
         JSONObject json = new JSONObject();
         while(rs.next()) {
-            String userID = rs.getString("userID");
-            json.put(userID, IdentityGenerator.toSerialCode(Integer.parseInt(userID)));
+            String studentName = rs.getString("studentName");
+            String studentID = rs.getString("studentID");
+            json.put(studentName, IdentityGenerator.toSerialCode(Integer.parseInt(studentID)));
         }
         System.out.println(json);
     }
