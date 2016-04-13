@@ -11,6 +11,7 @@ public class ZipReader {
     static String path = "d://input/input.zip";
 //    static String path = "d://input/tst.rar";
     
+    @SuppressWarnings("resource")
     public static void main(String[] args) throws Exception {
         @SuppressWarnings("resource")
         ZipInputStream in = new ZipInputStream(new FileInputStream(path));
