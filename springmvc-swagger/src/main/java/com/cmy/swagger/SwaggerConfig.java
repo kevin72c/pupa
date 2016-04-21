@@ -18,7 +18,7 @@ import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
  * @version V1.0.0
  *
  */
-@Configuration
+//@Configuration
 @EnableSwagger
 // Loads the spring beans required by the framework
 public class SwaggerConfig
@@ -26,6 +26,9 @@ public class SwaggerConfig
 
     private SpringSwaggerConfig springSwaggerConfig;
 
+    public SwaggerConfig() {
+     System.err.println(00);
+    }
     /**
      * Required to autowire SpringSwaggerConfig
      */

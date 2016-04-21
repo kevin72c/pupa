@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cmy.pojo.DemoPojo;
+import com.cmy.pojo.ResultDto;
+import com.cmy.pojo.UserModel;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -20,9 +21,8 @@ public class DemoController {
 
     @RequestMapping(value = "/add",  produces = "application/json; charset=utf-8")
     @ApiOperation(value = "添加用户", httpMethod = "POST",
-        response = DemoPojo.class,
         notes = "demo 笔记说明")
-//    @ResponseBody
+    @ResponseBody
     public String add(
 //            @ApiParam(required = true, name = "postData", value = "demo arguments")
             @RequestParam(value = "postData") String postData,
@@ -34,7 +34,6 @@ public class DemoController {
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ApiOperation(value = "list演示", httpMethod = "POST",
-    response = DemoPojo.class,
     notes = "demo add 笔记说明")
     public String list(
             @ApiParam(required = true, name = "postData", value = "demo arguments")
@@ -43,4 +42,30 @@ public class DemoController {
         System.out.println(0);
         return "demoTest";
     }
+
+    @ApiOperation(value = "test演示", httpMethod = "POST",
+            notes = "demo add 笔记说明")
+    @RequestMapping(value = "/test", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public ResultDto<UserModel> test(
+            @ApiParam(required = true, name = "postData", value = "demo arguments")
+            @RequestParam(value = "postData") String postData,
+            HttpServletRequest request) {
+        return null;
+    }
+    
+    @ApiOperation(value = "test2演示", httpMethod = "POST",
+            notes = "demo add 笔记说明")
+    @RequestMapping(value = "/test2", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public ResultDto<UserModel> test2(
+            @ApiParam(required = true, name = "postData", value = "demo arguments")
+            @RequestParam(value = "postData") String postData,
+            UserModel u,
+            HttpServletRequest request) {
+        System.out.println(postData);
+        return new ResultDto<UserModel>(11,"ss",null);
+    }
+    
+    
 }
