@@ -1,21 +1,16 @@
 package com.cmy.test;
 
-import java.beans.Transient;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.annotation.JSONField;
+import java.util.ArrayList;
+import java.util.List;
 
 public class XX {
 
     public static void main(String[] args) throws Exception {
-        Properties p = new Properties();
-        p.load(new FileInputStream("D:/javaTeam/workspace/pupa/springmvc_mybatis/src/main/resources/jdbc.properties"));
-        String property = p.getProperty("jdbc.url");
-        System.out.println(property);
+        Integer i1 = new Integer(0);
+        Integer i2 = new Integer(0);
+        List<Integer> list = new ArrayList<>();
+        list.add(i1);
+        System.out.println(list.contains(i2));
     }
     
     public A<XX> g() {
