@@ -1,8 +1,9 @@
-*/target/*
-*/work/*
-/bin/
-*.settings*
+*/target/
+*/work/
+*/bin/
+.settings
 .classpath
 .project
 .tomcatplugin
 *.jar
+*XX.java
