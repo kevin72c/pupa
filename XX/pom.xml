@@ -30,7 +30,7 @@
 
 		<!-- alibaba -->
 		<fastjson.version>1.2.7</fastjson.version>
-		<dubbo.version>2.4.10</dubbo.version>
+		<dubbo.version>2.5.3</dubbo.version>
 		<aliyun.sdk.oss.version>2.2.1</aliyun.sdk.oss.version>
 
 		<!-- mysql -->
@@ -58,6 +58,23 @@
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>${dubbo.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>netty</artifactId>
+					<groupId>org.jboss.netty</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- http -->
@@ -173,7 +190,6 @@
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>3.1</version>
-			<scope>runtime</scope>
 		</dependency>
 
 		<!-- mina -->

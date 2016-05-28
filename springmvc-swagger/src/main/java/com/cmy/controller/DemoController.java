@@ -27,6 +27,7 @@ public class DemoController {
 //            @ApiParam(required = true, name = "postData", value = "demo arguments")
             @RequestParam(value = "postData") String postData,
             HttpServletRequest request) {
+        
         System.out.println(0);
         return "demoTest";
     }

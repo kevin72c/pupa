@@ -1,15 +1,20 @@
 package com.cmy.basis.io;
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.Scanner;
 
 public class TextReader {
 
 	public static void main(String[] args) throws Exception {
 		// String path = "C://a.txt";
-		String path = "C://TimeEventNSIS.log";
-		int bufferSize = 1024;
+//		String path = "C://TimeEventNSIS.log";
+//		int bufferSize = 1024;
 		String outPath = "c://out.txt";
 		// String path = "C://pic.gif";
 //		File file = new File(path);
@@ -34,6 +39,7 @@ public class TextReader {
 			out.write(str);
 			out.newLine();
 		}
+		sc.close();
 		out.flush();
 		out.close();
 	}

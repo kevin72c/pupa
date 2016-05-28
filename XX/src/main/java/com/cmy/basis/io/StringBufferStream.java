@@ -10,7 +10,7 @@ public class StringBufferStream {
 	
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new FileReader(inPath));
-		
+		br.close();
 	}
 	
 	public static void readAndWrite(BufferedReader in, BufferedWriter out)
@@ -18,7 +18,7 @@ public class StringBufferStream {
 		String str;
 		
 		while ((str = in.readLine()) != null ) {
-			
+			System.out.println(str);
 		}
 	}
 

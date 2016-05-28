@@ -26,8 +26,37 @@ public class HttpInvoker {
 
     public static void main(String[] args) throws Exception {
         // postWithFile();
-        post();
+//        post();
+        postArray();
     }
+
+    public static void postArray() throws Exception {
+
+        String url = "http://localhost:8080/app/order/site/preview";
+        // 创建http客户端和post
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(url);
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("venueID", "3604"));
+        params.add(new BasicNameValuePair("sportType", "3"));
+        params.add(new BasicNameValuePair("siteList[0].subjectID", "2207"));
+        params.add(new BasicNameValuePair("siteList[0].subjectID", "2207"));
+        params.add(new BasicNameValuePair("siteList[0].hour", "10"));
+        params.add(new BasicNameValuePair("siteList[0].hour", "11"));
+
+        httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
+
+        // 执行请求
+        CloseableHttpResponse response = httpClient.execute(httpPost);
+        // 获取返回实体
+        HttpEntity entity = response.getEntity();
+        // 解析实体内容
+        String responseString = EntityUtils.toString(entity, "UTF-8");
+        System.out.println(responseString);
+        httpClient.close();
+    }
+
 
     public static void post() throws Exception {
 
