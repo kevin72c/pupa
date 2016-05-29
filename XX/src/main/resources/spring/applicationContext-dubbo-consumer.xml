@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+       default-lazy-init="true" default-autowire="byName">
+
+    <dubbo:application name="dojoy.app.main.client"/>
+
+    <!-- 关闭所有服务的启动时检查：(没有提供者时启动时报错) -->
+    <dubbo:consumer check="false"/>
+
+    <!-- 使用multicast广播注册中心暴露发现服务地址 -->
+    <!-- 本地测试时使用, 需启动service项目, 并且注册中心为multicast -->
+    <!--<dubbo:registry protocol="multicast" address="224.5.6.7:1234" />-->
+
+    <!-- 使用zookeeper广播注册中心暴露发现服务地址 -->
+    <dubbo:registry address="zookeeper://121.41.10.2:2181"/>
+
+    <!-- 扫描注解包路径，多个包用逗号分隔，不填package表示扫描当前ApplicationContext中所有的类 -->
+    <dubbo:annotation package="com.dojoy.server.controller"/>
+
+    <!-- 服务端接口 -->
+    <dubbo:reference id="venueSiteServiceRPC" interface="com.dojoy.api.service.venue.VenueSiteServiceRPC"  version="1.0.0"/>
+    <dubbo:reference id="orderServiceRPC"  interface="com.dojoy.api.service.order.OrderServiceRPC" version="1.0.0"/>
+    <dubbo:reference id="venueTicketOrderServiceRPC"  interface="com.dojoy.api.service.order.VenueTicketOrderServiceRPC" version="1.0.0"/>
+    <dubbo:reference id="venueSiteOrderServiceRPC" interface="com.dojoy.api.service.order.VenueSiteOrderServiceRPC" version="1.0.0"/>
+    <dubbo:reference id="couponServiceRPC" interface="com.dojoy.api.service.coupon.CouponServiceRPC" version="1.0.0" />
+    <dubbo:reference id="userServiceRPC" interface="com.dojoy.api.service.user.UserServiceRPC" version="1.0.0"/>
+
+</beans>

@@ -6,7 +6,7 @@ public class SpringContext {
 
     
     static ClassPathXmlApplicationContext context = 
-            new ClassPathXmlApplicationContext("applicationContext.xml");
+            new ClassPathXmlApplicationContext("applicationContext.xml_bak");
     
     public static void main(String[] args) throws Exception {
         

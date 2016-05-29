@@ -1,4 +1,4 @@
-package com.cmy.cache.memcache;
+package com.db.memcache;
 
 import com.whalin.MemCached.MemCachedClient;
 import com.whalin.MemCached.SockIOPool;

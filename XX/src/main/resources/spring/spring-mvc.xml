@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+	     http://www.springframework.org/schema/aop
+	     http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler />
+	  <!-- 启动扫描dojoy包 -->
+    <context:component-scan base-package="com.dojoy.server.controller"></context:component-scan>
+    <bean class="com.dojoy.core.swagger.SwaggerConfig" />
+
+    <!-- 启用默认配置 -->
+    <!-- 配置fastjson支持 -->
+    <!-- Response内容格式Content-Type:application/json -->
+     <!--<mvc:annotation-driven>-->
+         <!--<mvc:message-converters register-defaults="true">-->
+             <!--<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">-->
+                 <!--<property name="supportedMediaTypes">-->
+                     <!--<list>-->
+                         <!--<value>application/json</value>-->
+                     <!--</list>-->
+                 <!--</property>-->
+                 <!--<property name="features">-->
+                     <!--<array>-->
+                         <!--<value>WriteMapNullValue</value>-->
+                     <!--</array>-->
+                 <!--</property>-->
+             <!--</bean>-->
+         <!--</mvc:message-converters>-->
+     <!--</mvc:annotation-driven>-->
+
+    <!--  xcheck environment config -->
+    <bean class="com.cmy.xcheck.support.XCheckContext">
+        <property name="scanPackage">
+            <list>
+                <value>com.dojoy.server.controller</value>
+            </list>
+        </property>
+        <property name="errorMessageDisplay"><value>false</value></property>
+    </bean>
+    <context:component-scan base-package="com.cmy"></context:component-scan>
+
+    <!-- Controller异常拦截器 -->
+    <bean id="exceptionResolver" class="com.dojoy.core.aop.ControllerExceptionResolver">
+        <!--<property name="exceptionMappings">-->
+            <!--<props>-->
+                <!--<prop key="java.lang.SQLException">error/sqlerror</prop>-->
+                <!--<prop key="java.lang.Exception">error/500</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    </bean>
+
+    <mvc:interceptors>
+        <!-- Xcheck参数校验拦截器 -->
+        <bean class="com.cmy.xcheck.support.interceptor.XcheckSpringMVCInterceptor"/>
+        <!-- 请求限制拦截器 -->
+        <bean class="com.dojoy.security.access.AccessLimitInterceptor"/>
+    </mvc:interceptors>
+
+    <!-- 配置使Spring采用CGLIB代理 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>
