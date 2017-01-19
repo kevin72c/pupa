@@ -62,7 +62,6 @@
             <scope>test</scope>
         </dependency>
 
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
@@ -191,11 +190,6 @@
             <artifactId>spring-data-mongodb</artifactId>
             <version>1.9.1.RELEASE</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.data</groupId>-->
-            <!--<artifactId>spring-data-commons</artifactId>-->
-            <!--<version>${springdata.commons}</version>-->
-        <!--</dependency>-->
         <!-- springframe end -->
 
         <dependency>
@@ -252,20 +246,27 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.mongodb</groupId>-->
-            <!--<artifactId>mongodb-driver</artifactId>-->
-            <!--<version>3.2.2</version>-->
-        <!--</dependency>-->
-
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.9</version>
+        </dependency>
     </dependencies>
 
     <build>
         <finalName>XX</finalName>
-
         <plugins>
             <!-- Maven插件 配置 -->
-
             <!-- JDK版本插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -278,14 +279,14 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${plugin.maven.surefire.version}</version>
-                <configuration>
-                    <skipTests>${skipTests}</skipTests>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>${plugin.maven.surefire.version}</version>-->
+                <!--<configuration>-->
+                    <!--<skipTests>${skipTests}</skipTests>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
 
         <!--配置Maven 对resource文件 过滤 -->
