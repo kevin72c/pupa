@@ -21,7 +21,6 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan
-@ImportResource("spring/applicationContext-mongodb.xml")
 public class SpringMongoDBApplication {
 
     public static void main(String[] args) {

@@ -1,7 +1,5 @@
 package com.db.jedis;
 
-import java.util.Map;
-
 import redis.clients.jedis.Jedis;
 
 public class JedisClient {
@@ -12,16 +10,5 @@ public class JedisClient {
 //        jedis.auth("");
     }
     
-    /**
-     * 获取字典
-     * 
-     * @param jedisEnum
-     * @param dictName
-     * @return
-     */
-    public Map<String, String> getDictionary(String dictName) {
-        Map<String, String> dict = jedis.hgetAll(JedisEnum.dict + dictName);
-        return dict;
-    }
 
 }
