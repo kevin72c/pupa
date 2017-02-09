@@ -8,6 +8,7 @@
     <name>${project.artifactId}</name>
 
     <modules>
+        <module>spring-boot-druid</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
@@ -55,7 +56,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
-                <version>1.0.5</version>
+                <version>1.0.18</version>
             </dependency>
             <!-- mybatis 分页插件 -->
             <dependency>
