@@ -1,0 +1,127 @@
+#chat-container.open {
+	right: 2px;
+	bottom: 2px;
+}
+
+#chat-container {
+	position: fixed;
+	width:300px;
+	z-index: 2;
+	right: -300px;
+	bottom: -257px;
+	border: 1px solid #CDCECF;
+	background: #fff;
+	transition-duration: 1s;
+	-webkit-transition-duration: 1s;
+	-moz-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	-ms-transition-duration: 1s;
+	border-radius: 5px 5px 5px 5px !important;
+}
+
+#chat-container .chat-list-open-close {
+	display: block;
+	width: 25px;
+	height: 25px;
+	border-right: 1px solid #f2f4f8 !important;
+	position: absolute;
+	right:0px;
+	margin-top: 3px;
+	margin-right: 3px;
+	border-radius: 50% 0 0 50%;
+	font-size: 21px;
+	line-height: 22px;
+	cursor: pointer;
+	color: #868686;
+	text-align: center;
+}
+#chat-container .chat-list-body {
+	height: 250px;
+	display: block;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background: #ffffff;
+	border-radius: 5px 5px 5px 5px !important;
+}
+
+#chat-container #chat-users {
+	list-style: none;
+	margin: 5px 0px;
+	padding: 0px 5px;
+}
+
+#chat-container #chat-users li {
+	margin-bottom: 3px;
+	margin-left: 5px;
+}
+
+#chat-container #chat-users li a {
+	display: block;
+	font-size: 13px;
+	color: #3d3d3d;
+	text-decoration: none !important;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 3px 8px 3px 3px;
+	line-height: 33px;
+	vertical-align: middle;
+}
+
+.message-title {
+	border-bottom: 1px dashed rgba(0, 0, 0, .2);
+	font-weight: bold;
+	margin-top: 0;
+	background: 0 0;
+	font-size: 16px;
+	text-align: center;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	height: 29px;
+}
+
+.message-content {
+	padding: 0px 5px;
+	height: 175px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.message-controls {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: block;
+	background-color: #FFF;
+	border-top: 1px solid #CCC;
+	overflow: hidden;
+}
+
+.chat-list-open-close:HOVER>.glyphicon {
+	color: #4b8cf7;
+}
+
+.chat-list-open-close>.fa {
+	color: #939393
+}
+.chat-list-open-close>.fa:hover{
+	color: #f95e00;
+}
+.message-receive,.message-ignore{
+	background: #ffffff !important;
+	height: 25px !important;
+	border-width: 0px !important;
+	width: 50%;
+	margin: 0px !important;
+}
+.message-ignore:after{
+	content: "|";
+	position: relative;
+	right: -60px;
+	color: #939393;
+}
+.message-receive{
+	color: #f95e00 !important;
+}
