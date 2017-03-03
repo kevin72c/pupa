@@ -23,7 +23,7 @@ function send_request() {
     }
 
     if (xmlhttp != null) {
-        serverUrl = 'http://121.41.10.2:27090';
+        serverUrl = 'http://localhost:27090';
         xmlhttp.open("GET", serverUrl, false);
         xmlhttp.send(null);
         return xmlhttp.responseText

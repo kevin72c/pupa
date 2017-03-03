@@ -93,7 +93,7 @@ public class HttpInvoker {
 
         // HttpPost httpPost = new
         // HttpPost("http://localhost:8080/ssm/demo/uploadImg.action");
-        HttpPost httpPost = new HttpPost("http://121.41.41.156:8080/app/uploadImg.action");
+        HttpPost httpPost = new HttpPost("http://localhost:8080/app/uploadImg.action");
 
         // 设置上传的文件
         FileBody fileBody = new FileBody(new File(filePath));

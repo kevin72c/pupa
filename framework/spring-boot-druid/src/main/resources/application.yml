@@ -9,8 +9,8 @@ spring.datasource:
 #  url: jdbc:mysql://localhost:3306/test
 #  username: root
 #  password: 123456
-  url: jdbc:mysql://rds41cnvpr4t0g156ux3public.mysql.rds.aliyuncs.com:3306/sports_dev?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
-  userName: dojoy_dev
+  url: jdbc:mysql://localhost:3306/db?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+  userName: dev
   password: 1qaz2wsx_
   # 下面为连接池的补充设置，应用到上面所有数据源中
   # 初始化大小，最小，最大

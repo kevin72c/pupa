@@ -23,7 +23,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.dojoy"))
+                .apis(RequestHandlerSelectors.basePackage("com.xxx"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -32,8 +32,8 @@ public class Swagger2 {
         return new ApiInfoBuilder()
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("desc")
-                .termsOfServiceUrl("http://www.51dojoy.com/")
-                .contact(new Contact("dojoy", "51dojoy.com", "email"))
+                .termsOfServiceUrl("http://www.xxx.com/")
+                .contact(new Contact("xxx", "xxx.com", "email"))
                 .version("1.0")
                 .build();
     }

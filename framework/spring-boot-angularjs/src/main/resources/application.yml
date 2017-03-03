@@ -7,7 +7,7 @@ server:
 
 logging:
     level:
-        com.dojoy: DEBUG
+        com.c.j.w: DEBUG
     path: ./
 spring:
   profiles:
