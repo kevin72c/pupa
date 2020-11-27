@@ -36,7 +36,7 @@
         <aliyun.sdk.oss.version>2.2.1</aliyun.sdk.oss.version>
 
         <!-- mysql -->
-        <mysql.version>5.1.37</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
 
         <!-- httpclient -->
         <httpclient.version>4.3.5</httpclient.version>
