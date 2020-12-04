@@ -9,22 +9,15 @@
     <name>xx</name>
 
     <properties>
-        <plugin.mybatis.generator>1.3.1</plugin.mybatis.generator>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- JDK版本 -->
         <java.version>1.8</java.version>
 
         <spring.version>5.3.1</spring.version>
-        <mybatis.version>3.2.2</mybatis.version>
-        <mybatis.spring.version>1.1.1</mybatis.spring.version>
 
         <!-- log -->
-        <log4j.version>1.2.17</log4j.version>
-        <slf4j.version>1.7.10</slf4j.version>
+        <slf4j.version></slf4j.version>
 
-        <c3p0.version>0.9.1.2</c3p0.version>
 
         <!-- alibaba -->
         <fastjson.version>1.2.7</fastjson.version>
@@ -32,7 +25,7 @@
         <aliyun.sdk.oss.version>2.2.1</aliyun.sdk.oss.version>
 
         <!-- mysql -->
-        <mysql.version>8.0.16</mysql.version>
+        <mysql.version></mysql.version>
 
         <!-- httpclient -->
         <httpclient.version>4.3.5</httpclient.version>
@@ -43,7 +36,6 @@
         <!-- memcache -->
         <Memcached.Java.Client.version>3.0.2</Memcached.Java.Client.version>
         <!-- plugin versions -->
-        <plugin.mybatis.generator>1.3.1</plugin.mybatis.generator>
         <plugin.maven.surefire.version>2.18.1</plugin.maven.surefire.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 
@@ -100,26 +92,26 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.25.sec10</version>
+            <version>1.2.73</version>
         </dependency>
 
         <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
+            <version>8.0.16</version>
         </dependency>
 
         <!-- mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>${mybatis.version}</version>
+            <version>3.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>${mybatis.spring.version}</version>
+            <version>1.1.1</version>
         </dependency>
         <!-- mybaits 分页插件 -->
         <dependency>
@@ -131,13 +123,6 @@
             <groupId>com.github.jsqlparser</groupId>
             <artifactId>jsqlparser</artifactId>
             <version>0.9.4</version>
-        </dependency>
-
-        <!-- jdbc pool -->
-        <dependency>
-            <groupId>c3p0</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>${c3p0.version}</version>
         </dependency>
 
         <!-- memcache client -->
@@ -214,21 +199,15 @@
         <!--<version>1.6.1</version>-->
         <!--</dependency>-->
 
-        <!-- log -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
+            <version>1.7.10</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
+            <version>1.7.10</version>
         </dependency>
 
         <!-- provided lib -->
@@ -268,7 +247,7 @@
     </dependencies>
 
     <build>
-        <finalName>XX</finalName>
+        <finalName>xx</finalName>
         <plugins>
             <!-- Maven插件 配置 -->
             <!-- JDK版本插件 -->
@@ -279,7 +258,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
