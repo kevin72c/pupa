@@ -8,7 +8,7 @@
     <name>${project.artifactId}</name>
 
     <modules>
-        <module>XX</module>
-        <module>framework</module>
+        <module>xx</module>
+<!--        <module>framework</module>-->
     </modules>
 </project>

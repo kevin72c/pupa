@@ -111,7 +111,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.c.j.w.cms.CMSApplication</mainClass>
+                    <mainClass>com.github.cms.CMSApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
