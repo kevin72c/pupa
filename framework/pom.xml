@@ -40,7 +40,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.17</version>
+                <version>1.2.25.sec10</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -102,7 +102,7 @@
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
-                <version>3.4.8</version>
+                <version>3.4.14</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.slf4j</groupId>
@@ -151,7 +151,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.37</version>
+                <version>8.0.16</version>
             </dependency>
 
             <!-- MongoDB -->
@@ -168,7 +168,7 @@
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-commons</artifactId>
-                <version>1.12.1.RELEASE</version>
+                <version>1.13.13.RELEASE</version>
             </dependency>
 
             <dependency>
@@ -188,7 +188,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.11</version>
+                <version>4.13.1</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
