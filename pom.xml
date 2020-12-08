@@ -9,6 +9,6 @@
 
     <modules>
         <module>xx</module>
-<!--        <module>framework</module>-->
+        <module>kafka</module>
     </modules>
 </project>
